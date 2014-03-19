@@ -173,6 +173,40 @@ public class WinterSlashEvents implements Listener {
         plugin.wsplayersHM.remove(player.getName());
 
     }
+    
+    Material[] REVIVEITEMS = {Material.BLAZE_ROD,Material.BONE};
+    
+    //Prevent reviving tools from causing damage
+	@EventHandler(priority = EventPriority.NORMAL,ignoreCancelled = true)
+	public void revividamage(EntityDamageByEntityEvent event)
+	{
+		if (!(event.getEntity() instanceof Player)) {
+			return;
+		}
+		if (!(event.getDamager() instanceof Player)) {
+			return;
+		}
+		//ranged attacks ignored, they have arrow proxy as damage source
+		
+		Player px = (Player) event.getDamager();
+		
+		//obviously we dont want to cancell tool damage outside arena
+		//if player not registered to PlayerWrapper - he outside arena
+		if (WSA_PlayerWrapperImpl.getWrapperContainer(px) == null) return;
+		Material m = px.getItemInHand().getType();
+		
+		for (Material xm : REVIVEITEMS)
+		{
+			if (xm == m)
+			{
+				event.setCancelled(true);
+				return;
+			}
+		}
+		
+
+		
+	}
 
     //Pack-a-Punch logic
     @EventHandler
