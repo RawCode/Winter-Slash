@@ -11,22 +11,21 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
+import org.bukkit.plugin.java.JavaPlugin;
 
 
 
 public class WinterSlashManager{
 	
-	WinterSlashMain plugin2;
-	 
-	
-	
+
 	// This Arena manager is a modified version of JPG200's code: https://forums.bukkit.org/threads/tut-create-a-minigame-with-arena-names.193908/
 	
 	public enum Team { RED, GREEN; }
 
 
 
-    private WinterSlashMain plugin;
+    private JavaPlugin plugin;
+    JavaPlugin plugin2;
 
     
 	private WinterSlashManager() {

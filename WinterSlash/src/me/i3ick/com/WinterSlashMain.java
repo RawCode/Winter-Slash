@@ -43,11 +43,13 @@ public class WinterSlashMain extends JavaPlugin{
 	 private WinterSlashScoreboard WinterSlashScoreboard;
 	 public WinterSlashScoreboard scoreboad = WinterSlashScoreboard;
 	 
-	 
-	 
-	 // Now we do a getter Method so we can retrieve the Variable
-	 public static WinterSlashMain getInstance() {
-	 	return this;
+	 //learn 2 code btw
+	 public static JavaPlugin INSTANCE;
+	 public static JavaPlugin getInstance() {
+	 	return INSTANCE;
+	 }
+	 {
+		 INSTANCE = this;
 	 }
 	 
 	
