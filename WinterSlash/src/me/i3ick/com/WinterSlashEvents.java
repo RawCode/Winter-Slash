@@ -279,22 +279,38 @@ public class WinterSlashEvents implements Listener {
             }
         }
     }
-
+@Deprecated
     public boolean isRedTeam(Player p) {
         return plugin.wsred.containsValue(p);
     }
-
+@Deprecated
     public boolean isGreenTeam(Player p) {
         return plugin.wsgreen.containsValue(p);
     }
-
+@Deprecated
     public boolean isFrozenGreen(Player p) {
         return plugin.frozengreen.contains(p);
     }
-
+@Deprecated
     public boolean isFrozenRed(Player p) {
         return plugin.frozenred.contains(p);
     }
+
+	public int isFrozen(Player p)
+	{
+		return WSA_PlayerWrapperImpl.getWrapperContainer(p).Frozed;
+	}
+	
+	public boolean isTeamRed(Player p)
+	{
+		return WSA_PlayerWrapperImpl.getWrapperContainer(p).Team == WSA_PlayerWrapperImpl.TEAM_RED;
+	}
+	
+	public boolean isTeamRedAndFrozen(Player p)
+	{
+		return WSA_PlayerWrapperImpl.getWrapperContainer(p).Team == WSA_PlayerWrapperImpl.TEAM_RED
+			&& WSA_PlayerWrapperImpl.getWrapperContainer(p).Frozed != 0;
+	}
 
 
     // RESPAWN EVENTS
